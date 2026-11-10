@@ -1,4 +1,4 @@
-
+[readme_md (2).md](https://github.com/user-attachments/files/34615198/readme_md.2.md)
 # 📈 Enterprise SaaS Revenue Intelligence Platform
 
 An end-to-end predictive churn analytics and revenue intelligence platform for B2B SaaS enterprises. This project integrates a Machine Learning risk-scoring engine, a PostgreSQL Star Schema data warehouse, and an interactive executive Power BI dashboard to deliver real-time visibility into Monthly Recurring Revenue (MRR) and churn risk.
@@ -20,7 +20,7 @@ This platform bridges the gap between **predictive data science** and **executiv
 
 ```text
 [ Synthetic Data & ML Pipeline ] ──> [ PostgreSQL Star Schema Warehouse ] ──> [ Power BI Executive Dashboard ]
-    • Synthetic B2B Telemetry            • saas_revenue_db                       • Real-Time DAX Measures
+    • Synthetic B2B Telemetry             • saas_revenue_db                        • Real-Time DAX Measures
     • Scikit-Learn / XGBoost Risk Model   • dim_customers & fact_customer_metrics  • KPI Cards & Risk Tables
 ```
 
@@ -45,6 +45,7 @@ The analytical data warehouse is built in PostgreSQL (`saas_revenue_db`) using a
   * `customer_id` (Primary Key)
   * `company_name`
   * `contract_type` (Monthly vs. Annual)
+
 * **`public_fact_customer_metrics` (Fact Table):**
   * `customer_id` (Foreign Key)
   * `monthly_recurring_revenue` (MRR)
@@ -64,6 +65,7 @@ The Power BI dashboard connects directly to the PostgreSQL warehouse and utilize
   ```dax
   Total MRR = SUM('public_fact_customer_metrics'[monthly_recurring_revenue])
   ```
+
 * **Revenue at Risk (Accounts with $> 75\%$ churn risk):**
   ```dax
   Revenue at Risk = 
@@ -72,10 +74,12 @@ The Power BI dashboard connects directly to the PostgreSQL warehouse and utilize
       'public_fact_customer_metrics'[churn_risk_probability] > 75.0
   )
   ```
+
 * **Average Churn Risk:**
   ```dax
   Avg Churn Risk = AVERAGE('public_fact_customer_metrics'[churn_risk_probability])
   ```
+
 * **Churn Rate %:**
   ```dax
   Churn Rate % = DIVIDE(
@@ -96,13 +100,13 @@ The Power BI dashboard connects directly to the PostgreSQL warehouse and utilize
 
 ### 2. Machine Learning & Data Pipeline
 Run the Python ML script to generate the synthetic telemetry and fit the churn prediction model:
-```powershell
+```bash
 python scripts/train_churn_model.py
 ```
 
 ### 3. Load Database Data Warehouse
 Populate the PostgreSQL Star Schema warehouse:
-```powershell
+```bash
 python scripts/load_star_schema.py
 ```
 
@@ -128,3 +132,11 @@ saas-churn-revenue-intelligence/
 ├── .gitignore
 └── README.md                     # Main GitHub repository documentation
 ```
+
+---
+
+## 👤 Author & Credits
+
+**Developed by:** Abhay Panchal  
+**Role:** Full-Stack & Data Engineer  
+**Email:** [abhaypanchal095@gmail.com](mailto:abhaypanchal095@gmail.com)
