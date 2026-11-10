@@ -1,4 +1,4 @@
-[readme_md (2).md](https://github.com/user-attachments/files/34615198/readme_md.2.md)
+
 # 📈 Enterprise SaaS Revenue Intelligence Platform
 
 An end-to-end predictive churn analytics and revenue intelligence platform for B2B SaaS enterprises. This project integrates a Machine Learning risk-scoring engine, a PostgreSQL Star Schema data warehouse, and an interactive executive Power BI dashboard to deliver real-time visibility into Monthly Recurring Revenue (MRR) and churn risk.
